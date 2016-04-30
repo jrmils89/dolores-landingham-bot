@@ -26,4 +26,10 @@ class Employee < ActiveRecord::Base
       )
     end
   end
+
+  def add_slack_user_id_to_employee
+    if !EmployeeFinder.new(slack_username).slack_user_id.nil?
+      self.slack_user_id = EmployeeFinder.new(slack_username).slack_user_id
+    end
+  end
 end

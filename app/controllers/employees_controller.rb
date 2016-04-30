@@ -7,6 +7,8 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params)
     @employee.validate_slack_username_in_org
+    @employee.add_slack_user_id_to_employee
+
 
     if @employee.errors.full_messages.empty? && @employee.save
       flash[:notice] = "Thanks for adding #{@employee.slack_username}"

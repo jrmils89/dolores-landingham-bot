@@ -22,4 +22,9 @@ class TestMessagesController < ApplicationController
   def slack_username
     params[:test_message][:slack_username]
   end
+
+  def slack_user_id
+    params[:test_message][:slack_user_id]
+  end
+
 end
