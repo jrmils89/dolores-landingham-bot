@@ -93,7 +93,7 @@ If you are not part of 18F and would like to run the application locally, you ca
 follow these steps:
 
 1. Create a [MyUSA Account](https://alpha.my.usa.gov/) and create an application for
-development with the following:
+development with the following. You can also create your account by following the redirect for when you open the application locally for the first time. However, the link you receive in the confirmation (if you sign up using your email instead of authing through gmail) won't work and you'll have to go to [MyUSA Authorizations](https://alpha.my.usa.gov/authorizations) directly to create your application:
 
   For Url:
 
@@ -123,6 +123,8 @@ development with the following:
     /#{ENV['AUTH_DOMAIN']}/.match(auth_email)
   end
 ```
+
+A small note: you don't have to worry about `ASSET_HOST` and `APPLICATION_HOST` running on a different port, as they are not used for local development purposes. 
 
 ## Deployment
 
