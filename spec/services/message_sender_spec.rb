@@ -81,7 +81,7 @@ describe MessageSender do
     Timecop.return
   end
 
-  it "does not error if channel not found for slack user" do
+  it "does error if channel not found for slack user" do
     Timecop.freeze(Time.parse("10:00:00 UTC"))
 
     scheduled_message = create(:scheduled_message)
@@ -97,7 +97,14 @@ describe MessageSender do
 
     MessageSender.new(employee, scheduled_message).run
 
-    expect(SentScheduledMessage).not_to have_received(:create)
+    expect(SentScheduledMessage).to have_received(:create).with(
+      employee: employee,
+      error_message: "Was unable to find a slack channel for this username",
+      scheduled_message: scheduled_message,
+      sent_on: Date.today,
+      sent_at: Time.parse("10:00:00 UTC"),
+      message_body: scheduled_message.body,
+    )
 
     Timecop.return
   end
