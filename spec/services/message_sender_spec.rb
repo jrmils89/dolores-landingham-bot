@@ -12,7 +12,7 @@ describe MessageSender do
 
     allow(Slack::Web::Client).to receive(:new).and_return(client_double)
     allow(SlackChannelIdFinder).
-      to receive(:new).with(employee.slack_username, client_double).
+      to receive(:new).with(employee.slack_user_id, client_double).
       and_return(slack_channel_finder_double)
     allow(SentScheduledMessage).to receive(:create)
 
@@ -41,7 +41,7 @@ describe MessageSender do
 
     allow(Slack::Web::Client).to receive(:new).and_return(client_double)
     allow(SlackChannelIdFinder).
-      to receive(:new).with(employee.slack_username, client_double).
+      to receive(:new).with(employee.slack_user_id, client_double).
       and_return(slack_channel_finder_double)
     allow(SentScheduledMessage).to receive(:create)
 
@@ -63,7 +63,7 @@ describe MessageSender do
 
     allow(Slack::Web::Client).to receive(:new).and_return(client_double)
     allow(SlackChannelIdFinder).
-      to receive(:new).with(employee.slack_username, client_double).
+      to receive(:new).with(employee.slack_user_id, client_double).
       and_return(slack_channel_finder_double)
     allow(SentScheduledMessage).to receive(:create)
 
@@ -91,7 +91,7 @@ describe MessageSender do
 
     allow(Slack::Web::Client).to receive(:new).and_return(client_double)
     allow(SlackChannelIdFinder).
-      to receive(:new).with(employee.slack_username, client_double).
+      to receive(:new).with(employee.slack_user_id, client_double).
       and_return(slack_channel_id_double)
     allow(SentScheduledMessage).to receive(:create)
 
@@ -112,7 +112,7 @@ describe MessageSender do
 
     allow(Slack::Web::Client).to receive(:new).and_return(client_double)
     allow(SlackChannelIdFinder).
-      to receive(:new).with(employee.slack_username, client_double).
+      to receive(:new).with(employee.slack_user_id, client_double).
       and_return(slack_channel_id_double)
     allow(SentScheduledMessage).to receive(:create)
 
