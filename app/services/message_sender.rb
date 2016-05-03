@@ -9,8 +9,9 @@ class MessageSender
   def run
     configure_slack
 
-    if employee.slack_user_id.nil? && !EmployeeFinder.new(employee.slack_username).slack_user_id.nil?
-      user_id = EmployeeFinder.new(employee.slack_username).slack_user_id
+    user_id = EmployeeFinder.new(employee.slack_username).slack_user_id
+
+    if employee.slack_user_id.nil? && !user_id.nil?
       employee.slack_user_id = user_id
       employee.save
     end
