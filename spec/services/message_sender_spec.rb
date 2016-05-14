@@ -99,7 +99,7 @@ describe MessageSender do
 
     expect(SentScheduledMessage).to have_received(:create).with(
       employee: employee,
-      error_message: "Was unable to find a slack channel for this username",
+      error_message: "Was unable to find a slack channel for user with name #{employee.slack_username} and slack user id #{employee.slack_user_id}",
       scheduled_message: scheduled_message,
       sent_on: Date.today,
       sent_at: Time.parse("10:00:00 UTC"),
