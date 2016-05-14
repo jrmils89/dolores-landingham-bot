@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160430175239) do
   end
 
   add_index "employees", ["deleted_at"], name: "index_employees_on_deleted_at", using: :btree
+  add_index "employees", ["slack_user_id"], name: "index_employees_on_slack_user_id", using: :btree
 
   create_table "scheduled_messages", force: :cascade do |t|
     t.datetime "created_at",                                       null: false
